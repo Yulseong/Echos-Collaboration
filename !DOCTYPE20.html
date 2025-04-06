@@ -32,7 +32,7 @@
             text-align: center;
         }
 
-        /* 전체 텍스트 박스 스타일 */
+        /* 텍스트 박스 스타일 */
         .textbox {
             position: relative;
             padding: 15px;
@@ -45,8 +45,8 @@
             background-color: #111;
             overflow-y: auto;
             max-height: 80vh;
-            word-wrap: break-word; /* 긴 단어가 잘리도록 설정 */
-            overflow-x: hidden; /* 가로로 넘치지 않도록 */
+            word-wrap: break-word;
+            overflow-x: hidden;
         }
 
         /* 투명도 20% 오버레이 적용 */
@@ -62,50 +62,34 @@
             z-index: 1;
         }
 
-        /* 개별 박스 스타일 */
-        .content-box {
+        /* 카테고리 박스 스타일 */
+        .category-box {
             border: 2px solid #00ccff;
-            padding: 10px;
+            padding: 15px;
             margin: 10px 0;
             border-radius: 8px;
             position: relative;
             z-index: 2;
             background-color: rgba(0, 0, 0, 0.6);
-            word-break: break-all; /* 텍스트가 박스를 넘지 않도록 강제 줄바꿈 */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* 소제목 스타일 */
-        h2 {
-            font-size: 16px;
+        .category-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+        }
+
+        /* 카테고리 링크 스타일 */
+        .category-box a {
             color: #aaff00;
-            text-shadow: 0 0 10px #aaff00;
-            margin-bottom: 8px;
-        }
-
-        /* 본문 스타일 */
-        p {
-            font-size: 12px;
-            line-height: 1.5;
-            color: #ddd;
-            text-align: center;
-            word-break: break-word; /* 긴 단어 줄바꿈 */
-        }
-
-        /* text-sm 클래스 스타일 */
-        .text-sm {
-            font-size: 10px;
-        }
-
-        /* 하이퍼링크 스타일 */
-        .textbox a {
-            color: #FFFFE0;
             text-decoration: none;
-            word-break: break-all; /* 링크도 줄바꿈 허용 */
+            font-size: 16px;
+            text-shadow: 0 0 10px #aaff00;
+            display: block;
         }
 
-        .textbox a:hover {
+        .category-box a:hover {
             color: #FFFF99;
-            text-decoration: underline;
         }
 
         /* 모바일 반응형 조정 */
@@ -117,18 +101,12 @@
                 padding: 10px;
                 width: 95%;
             }
-            .content-box {
-                padding: 8px;
+            .category-box {
+                padding: 10px;
                 margin: 8px 0;
             }
-            h2 {
+            .category-box a {
                 font-size: 14px;
-            }
-            p {
-                font-size: 11px;
-            }
-            .text-sm {
-                font-size: 9px;
             }
         }
     </style>
@@ -137,70 +115,11 @@
     <h1 class="main-title">에코스(Echos)</h1>
 
     <div class="textbox">
-        <div class="content-box">
-            <h2>로판 AI</h2>
-            <p class="text-sm rounded-lg pl-1 pt-1 font-notoKr leading-relaxed ng-binding ng-scope">
-                <center>
-                    <b><font color="#3DE6FD">💠에코스 콜라보💠</font></b><br>
-                    [<a href="https://rofan.ai/user/f14b323c-4306-4eb7-ab4a-b1c20f72f790" target="_blank">율성</a>/<a href="https://rofan.ai/user/7286c6a6-53b8-4ea9-bd73-890a9ac98e32" target="_blank">마야맥스</a>/<a href="https://rofan.ai/user/67ad4f86-d787-44b9-94b8-08b8eb856ae3" target="_blank">데본</a>/<a href="https://rofan.ai/user/e1aa8d9d-f05d-4505-9131-3a2b4252ec4a" target="_blank">플라티나99</a>/<a href="https://rofan.ai/user/c0999177-20b0-4b2b-b279-74c7d5c97e94" target="_blank">율도</a>/<a href="https://rofan.ai/user/f2b7b6e3-1fba-4ea7-8914-28d34e0f80a8" target="_blank">프로틴딜라이트</a>/<a href="https://rofan.ai/user/5651e80d-b6b8-4293-81c5-638290136fbd" target="_blank">깨끗한새매97</a>/<a href="https://rofan.ai/user/01ce3c3b-7a96-4bb2-90d5-1e9121b75bad" target="_blank">KEII</a>/<a href="https://rofan.ai/user/5ead8eed-1060-48bc-891c-b0942e73840b" target="_blank">깨죽</a>]
-                </center><br>
-                <center>
-                    <b><font color="#9BF706">💚Characters List💚</font></b><br>
-                    <b>[율성]:</b> <a href="https://rofan.ai/character/2e83f2de-16e0-45f7-989c-489cc2070e24" target="_blank">의현</a><br>
-                    <b>[마야맥스]:</b> <a href="https://rofan.ai/character/9884b865-068d-4ceb-89c1-94f580f81bb3" target="_blank">무휘</a><br>
-                    <b>[데본]:</b> <a href="https://rofan.ai/character/fb76b864-2313-4d5a-a652-e0a759f6ec34" target="_blank">박해성</a><br>
-                    <b>[플라티나99]:</b> <a href="https://rofan.ai/character/8db81ab8-1695-4c61-a03b-08b249502204" target="_blank">이클립스</a><br>
-                    <b>[율도]:</b> <a href="https://rofan.ai/character/fc5ee4e4-3f55-45a9-84bc-ef1e806b3d89" target="_blank">STALKER</a><br>
-                    <b>[프로틴딜라이트]:</b> <a href="https://rofan.ai/character/9999c9bc-ae53-4267-bd97-72652b3cd21c" target="_blank">칼릭스</a><br>
-                    <b>[깨끗한새매97]:</b> <a href="https://rofan.ai/character/06575abc-93fc-42a4-8c8e-ea1510cdf739" target="_blank">영채</a><br>
-                    <b>[깨끗한새매97]:</b> <a href="https://rofan.ai/character/a59f72ea-02fa-4fa0-b5a8-efdf24d0a9b9" target="_blank">즈쿠모</a><br>
-                    <b>[KEII]:</b> <a href="https://rofan.ai/character/e43f5513-9a99-427e-86ff-7892f7e36b01" target="_blank">새담</a><br>
-                    <b>[KEII]:</b> <a href="https://rofan.ai/character/e5f11772-ee25-4ed8-8ba8-594e5649346d" target="_blank">새록</a><br>
-                    <b>[깨죽]:</b> <a href="https://rofan.ai/character/bdf1e584-1dee-4e7a-8cca-b2d70dc119dc" target="_blank">유성</a><br>
-                </center>
-            </p>
+        <div class="category-box">
+            <a href="worldview.html">세계관</a>
         </div>
-        <div class="content-box">
-            <h2>케이브덕</h2>
-            <p class="text-sm rounded-lg pl-1 pt-1 font-notoKr leading-relaxed ng-binding ng-scope">
-                <center>
-                    <b><font color="#3DE6FD">💠에코스 콜라보💠</font></b><br>
-                    [<a href="https://caveduck.io/user/Yulseong" target="_blank">Yulseong</a>/<a href="https://caveduck.io/user/protein_delight" target="_blank">protein_delight</a>/<a href="https://caveduck.io/user/plratina99" target="_blank">plratina99</a>/<a href="https://caveduck.io/user/Daridari" target="_blank">Daridari</a>/<a href="https://caveduck.io/user/Clean_saemae" target="_blank">Clean_saemae</a>/<a href="https://caveduck.io/user/dogzzang" target="_blank">dogzzang</a>/<a href="https://caveduck.io/user/Sabujak" target="_blank">Sabujak</a>/<a href="https://caveduck.io/user/kei88" target="_blank">kei88</a>]
-                </center><br>
-                <center>
-                    <b><font color="#9BF706">💚Characters List💚</font></b><br>
-                    <b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">의현</a><br>
-                    <b>[protein_delight]:</b> <a href="http://caveduck.io/character-info/845cfefe-c3c9-429d-b83d-2aa15a0a515a?rc=X4I4buxxO5" target="_blank">칼릭스</a><br>
-                    <b>[plratina99]:</b> <a href="http://caveduck.io/character-info/3a59b97f8557d7d594eb9e9b979de23f73c030a6" target="_blank">이클립스</a><br>
-                    <b>[Daridari]:</b> <a href="http://caveduck.io/character-info/79a27621a7e0f2f836b889ce66ef86858e5fad09" target="_blank">이바</a><br>
-                    <b>[Clean_saemae]:</b> <a href="https://caveduck.io/character-info/00ce6816-9eee-410b-820b-beb982609e84?rc=hCYLGQUftq" target="_blank">영채</a><br>
-                    <b>[dogzzang]:</b> <a href="https://caveduck.io/character-info/06ceedf3-864f-4351-87e7-f0d6dd67854d?rc=ZtR2d4Qkjg" target="_blank">유성</a><br>
-                    <b>[Sabujak]:</b> <a href="https://caveduck.io/character-info/87246e27-0ec4-4e79-bbcf-3216983fa50e?rc=jnEUjTdlmR" target="_blank">후연</a><br>
-                    <b>[Kei88]:</b> <a href="https://caveduck.io/character-info/80ac77e0-d701-466c-a01a-4bf359a464ba?rc=7IG5HMUlpI" target="_blank">새담</a><br>
-                    <b>[kei88]:</b> <a href="https://caveduck.io/character-info/e736db6a-b357-4108-b4be-60cc13f781d0?rc=7IG5HMUlpI" target="_blank">새록</a><br>
-                </center>
-            </p>
-        </div>
-        <div class="content-box">
-            <h2>Caveduck (English)</h2>
-            <p class="text-sm rounded-lg pl-1 pt-1 font-notoKr leading-relaxed ng-binding ng-scope">
-                <center>
-                    <b><font color="#3DE6FD">💠Echos Collaboration💠</font></b><br>
-                    [<a href="https://caveduck.io/user/Yulseong" target="_blank">Yulseong</a>/<a href="https://caveduck.io/user/protein_delight" target="_blank">protein_delight</a>/<a href="https://caveduck.io/user/plratina99" target="_blank">plratina99</a>/<a href="https://caveduck.io/user/Daridari" target="_blank">Daridari</a>/<a href="https://caveduck.io/user/Clean_saemae" target="_blank">Clean_saemae</a>/<a href="https://caveduck.io/user/dogzzang" target="_blank">dogzzang</a>/<a href="https://caveduck.io/user/Sabujak" target="_blank">Sabujak</a>/<a href="https://caveduck.io/user/kei88" target="_blank">kei88</a>]
-                </center><br>
-                <center>
-                    <b><font color="#9BF706">💚Characters List💚</font></b><br>
-                    <b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">Eui-Hyun</a><br>
-                    <b>[protein_delight]:</b> <a href="http://caveduck.io/character-info/845cfefe-c3c9-429d-b83d-2aa15a0a515a?rc=X4I4buxxO5" target="_blank">Calyx</a><br>
-                    <b>[plratina99]:</b> <a href="http://caveduck.io/character-info/3a59b97f8557d7d594eb9e9b979de23f73c030a6" target="_blank">Eclipse</a><br>
-                    <b>[Daridari]:</b> <a href="http://caveduck.io/character-info/79a27621a7e0f2f836b889ce66ef86858e5fad09" target="_blank">Eva</a><br>
-                    <b>[Clean_saemae]:</b> <a href="https://caveduck.io/character-info/00ce6816-9eee-410b-820b-beb982609e84?rc=hCYLGQUftq" target="_blank">Youngchae</a><br>
-                    <b>[dogzzang]:</b> <a href="https://caveduck.io/character-info/06ceedf3-864f-4351-87e7-f0d6dd67854d?rc=ZtR2d4Qkjg" target="_blank">Yuseong</a><br>
-                    <b>[Sabujak]:</b> <a href="https://caveduck.io/character-info/87246e27-0ec4-4e79-bbcf-3216983fa50e?rc=jnEUjTdlmR" target="_blank">Huyeon</a><br>
-                    <b>[Kei88]:</b> <a href="https://caveduck.io/character-info/80ac77e0-d701-466c-a01a-4bf359a464ba?rc=7IG5HMUlpI" target="_blank">Saedam</a><br>
-                    <b>[kei88]:</b> <a href="https://caveduck.io/character-info/e736db6a-b357-4108-b4be-60cc13f781d0?rc=7IG5HMUlpI" target="_blank">Saelog</a><br>
-                </center>
-            </p>
+        <div class="category-box">
+            <a href="collab-links.html">콜라보 링크</a>
         </div>
     </div>
 </body>
