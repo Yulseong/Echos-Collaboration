@@ -39,12 +39,12 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
             width: 90%;
-            max-width: 800px;
+            max-width: 800px; /* 가로 크기는 그대로 유지 */
             text-align: center;
             border: 2px solid #00ff00;
             background-color: #111;
             overflow-y: auto;
-            max-height: 80vh;
+            max-height: 240vh; /* 높이를 80vh에서 3배인 240vh로 늘림 */
             word-wrap: break-word;
             overflow-x: hidden;
         }
@@ -65,7 +65,7 @@
         /* 카테고리 박스 스타일 */
         .category-box {
             border: 2px solid #00ccff;
-            padding: 15px;
+            padding: 30px; /* 글씨 크기가 커졌으니 패딩도 15px에서 30px로 늘림 */
             margin: 10px 0;
             border-radius: 8px;
             position: relative;
@@ -83,7 +83,7 @@
         .category-box a {
             color: #aaff00;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 48px; /* 글씨 크기를 16px에서 3배인 48px로 키움 */
             text-shadow: 0 0 10px #aaff00;
             display: block;
         }
@@ -102,11 +102,11 @@
                 width: 95%;
             }
             .category-box {
-                padding: 10px;
+                padding: 20px; /* 모바일에서도 패딩을 10px에서 20px로 늘림 */
                 margin: 8px 0;
             }
             .category-box a {
-                font-size: 14px;
+                font-size: 42px; /* 모바일에서도 글씨 크기를 14px에서 3배인 42px로 키움 */
             }
         }
     </style>
