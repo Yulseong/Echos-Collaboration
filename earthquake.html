@@ -101,21 +101,21 @@
 
         /* 소제목 스타일 */
         h2 {
-            font-size: 16px;
+            font-size: 20px; /* 기존 16px에서 2단계 크게 */
             color: #aaff00;
             text-shadow: 0 0 10px #aaff00;
             margin-bottom: 8px;
         }
 
         h3 {
-            font-size: 14px;
+            font-size: 18px; /* 기존 14px에서 2단계 크게 */
             color: #3DE6FD;
             text-shadow: 0 0 8px #3DE6FD;
             margin: 10px 0;
         }
 
         p {
-            font-size: 12px;
+            font-size: 16px; /* 기존 12px에서 2단계 크게 */
             color: #ffffff;
             margin: 5px 0;
             line-height: 1.5;
@@ -154,13 +154,13 @@
                 margin: 8px 0;
             }
             h2 {
-                font-size: 14px;
+                font-size: 18px; /* 기존 14px에서 2단계 크게 */
             }
             h3 {
-                font-size: 12px;
+                font-size: 16px; /* 기존 12px에서 2단계 크게 */
             }
             p {
-                font-size: 11px;
+                font-size: 14px; /* 기존 11px에서 2단계 크게 */
             }
             .button {
                 font-size: 12px;
@@ -185,25 +185,34 @@
 
         <div id="ooc-content" class="content-box" style="display: none;">
             <h2>OOC</h2>
-            <p>[OOC: 잠시 RP 중단. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
-            <p>[OOC: 이전 RP와 이어서 자연스럽게 스토리 연결. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
-            <p>[OOC: Pause RP for a moment. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
-            <p>[OOC: Continue the story naturally from the previous RP. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
+            <div class="content-box">
+                <h3>한글 버전</h3>
+                <p>[OOC: 잠시 RP 중단. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
+                <p>[OOC: 이전 RP와 이어서 자연스럽게 스토리 연결. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
+            </div>
+            <div class="content-box">
+                <h3>English Version</h3>
+                <p>[OOC: Pause RP for a moment. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
+                <p>[OOC: Continue the story naturally from the previous RP. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
+            </div>
         </div>
 
         <div id="npc-content" class="content-box" style="display: none;">
             <h2>NPC 소환코드</h2>
-            <h3>한글 버전</h3>
-            <p>[# NPC 등장 조건.<br># NPC는 조건이 충족한 경우에만 등장한다.</p>
-            <p>&lt;지하 도시 에코스 상부 구역&gt;에서만 등장<br>이클립스(Eclipse): 구조, 인명 구조, 에코스 구호 보호소 등장<br>새담(Saedam): 물, 식수, 물이나 식수를 찾는 행동을 할 때 등장<br>해성(Haeseong): 펜, 서류, 자신의 처지를 비관, 에코스 상부 구역에서 등장<br>알테아(Althea): 의료품, 병원, 치료가 필요한 상황에서 등장<br>로에(Roe): 레인저, 총, 에코스 입구, 지상에 나가야 하는 상황에서 등장<br>보라(Bora): 대피로, 학교, 선생님, 지식이 필요 할 때 등장</p>
-            <p>&lt;지하 도시 에코스 하부 구역&gt;에서만 등장<br>새록(Saerok): 수리, 코그너스의 수리, 과학자, 연구소에서만 등장<br>노을(Noeul): 레지스탕스, 하부 구역, 조직, 가게 '로즈'에서 등장</p>
-            <p>&lt;지상&gt;에서만 등장<br>스토커(Stalker): 돈, 부품, 잔해, 사냥, 경계, 지상의 숲 또는 황금 구역 등장<br>즈쿠모(Zukumo): 거미줄, 거미 고치, 비스트킨 영역에서 등장<br>무휘(Muhwi): 그림자, 밤, 어둠, 지상, 에코스 입구 주변, 밤에만 등장<br>유성(Yuseong): 약탈, 담배, 밤의 숲에서 약탈을 하기 위해 등장-유성 등장<br>칼립스(Calyx): 약초, 꽃, 폐허, 거래가 필요한 상황, 숲에서 등장<br>후연(Huyeon): 전기, 군사 시설, 군사 물품 발견 할때 등장<br>의현(Euihyun): 책, 유적, 마더 루트 마을에서 등장<br>나츄(Nachu): 열매, 과일, 과일 나무 앞에서 등장<br>실버(Male): 지도, 네이티스와 전투, 지상의 안내가 필요할 때 등장<br>검희(Geomhee): 경호, 용병, 메탈릭스, 도움이 필요 할 때 등장]</p>
-            
-            <h3>English Version</h3>
-            <p>[# NPC Appearance Conditions.<br># NPCs will only appear when the conditions are met.</p>
-            <p>&lt;Underground City Echos Upper District&gt; Only<br>Eclipse: Rescue, lifesaving, appears at Echos relief shelter<br>Saedam: Water, drinking water, appears when searching for water or food<br>Haeseong: Pen, documents, lamenting their situation, appears in Echos Upper District<br>Althea: Medical supplies, hospital, appears in situations requiring treatment<br>Roe: Ranger, gun, Echos entrance, appears in situations requiring surface travel<br>Bora: Evacuation route, school, teacher, appears when knowledge is needed</p>
-            <p>&lt;Underground City Echos Lower District&gt; Only<br>Saerok: Repair, Cognus repair, scientist, appears only in the lab<br>Noeul: Resistance, Lower District, organization, appears at the shop 'Rose'</p>
-            <p>&lt;Surface&gt; Only<br>Stalker: Money, parts, debris, hunting, vigilance, appears in surface forests or Golden Zones<br>Zukumo: Spider webs, spider cocoons, appears in Beastkin territory<br>Muhwi: Shadow, night, darkness, surface, around Echos entrance, appears only at night<br>Yuseong: Looting, cigarettes, appears in night forests for looting—Yuseong appears<br>Calyx: Herbs, flowers, ruins, appears in forests when trade is needed<br>Huyeon: Electricity, military facilities, appears when military items are discovered<br>Euihyun: Books, ruins, appears in Mother Root village<br>Nachu: Berries, fruits, appears in front of fruit trees<br>Silver (Male): Map, combat with Natis, appears when surface guidance is needed<br>Geomhee: Escort, mercenary, Metalix, appears when help is needed]</p>
+            <div class="content-box">
+                <h3>한글 버전</h3>
+                <p>[# NPC 등장 조건.<br># NPC는 조건이 충족한 경우에만 등장한다.</p>
+                <p><지하 도시 에코스 상부 구역>에서만 등장<br>이클립스(Eclipse): 구조, 인명 구조, 에코스 구호 보호소 등장<br>새담(Saedam): 물, 식수, 물이나 식수를 찾는 행동을 할 때 등장<br>해성(Haeseong): 펜, 서류, 자신의 처지를 비관, 에코스 상부 구역에서 등장<br>알테아(Althea): 의료품, 병원, 치료가 필요한 상황에서 등장<br>로에(Roe): 레인저, 총, 에코스 입구, 지상에 나가야 하는 상황에서 등장<br>보라(Bora): 대피로, 학교, 선생님, 지식이 필요 할 때 등장</p>
+                <p><지하 도시 에코스 하부 구역>에서만 등장<br>새록(Saerok): 수리, 코그너스의 수리, 과학자, 연구소에서만 등장<br>노을(Noeul): 레지스탕스, 하부 구역, 조직, 가게 '로즈'에서 등장</p>
+                <p><지상>에서만 등장<br>스토커(Stalker): 돈, 부품, 잔해, 사냥, 경계, 지상의 숲 또는 황금 구역 등장<br>즈쿠모(Zukumo): 거미줄, 거미 고치, 비스트킨 영역에서 등장<br>무휘(Muhwi): 그림자, 밤, 어둠, 지상, 에코스 입구 주변, 밤에만 등장<br>유성(Yuseong): 약탈, 담배, 밤의 숲에서 약탈을 하기 위해 등장-유성 등장<br>칼립스(Calyx): 약초, 꽃, 폐허, 거래가 필요한 상황, 숲에서 등장<br>후연(Huyeon): 전기, 군사 시설, 군사 물품 발견 할때 등장<br>의현(Euihyun): 책, 유적, 마더 루트 마을에서 등장<br>나츄(Nachu): 열매, 과일, 과일 나무 앞에서 등장<br>실버(Male): 지도, 네이티스와 전투, 지상의 안내가 필요할 때 등장<br>검희(Geomhee): 경호, 용병, 메탈릭스, 도움이 필요 할 때 등장]</p>
+            </div>
+            <div class="content-box">
+                <h3>English Version</h3>
+                <p>[# NPC Appearance Conditions.<br># NPCs will only appear when the conditions are met.</p>
+                <p><Underground City Echos Upper District> Only<br>Eclipse: Rescue, lifesaving, appears at Echos relief shelter<br>Saedam: Water, drinking water, appears when searching for water or food<br>Haeseong: Pen, documents, lamenting their situation, appears in Echos Upper District<br>Althea: Medical supplies, hospital, appears in situations requiring treatment<br>Roe: Ranger, gun, Echos entrance, appears in situations requiring surface travel<br>Bora: Evacuation route, school, teacher, appears when knowledge is needed</p>
+                <p><Underground City Echos Lower District> Only<br>Saerok: Repair, Cognus repair, scientist, appears only in the lab<br>Noeul: Resistance, Lower District, organization, appears at the shop 'Rose'</p>
+                <p><Surface> Only<br>Stalker: Money, parts, debris, hunting, vigilance, appears in surface forests or Golden Zones<br>Zukumo: Spider webs, spider cocoons, appears in Beastkin territory<br>Muhwi: Shadow, night, darkness, surface, around Echos entrance, appears only at night<br>Yuseong: Looting, cigarettes, appears in night forests for looting—Yuseong appears<br>Calyx: Herbs, flowers, ruins, appears in forests when trade is needed<br>Huyeon: Electricity, military facilities, appears when military items are discovered<br>Euihyun: Books, ruins, appears in Mother Root village<br>Nachu: Berries, fruits, appears in front of fruit trees<br>Silver (Male): Map, combat with Natis, appears when surface guidance is needed<br>Geomhee: Escort, mercenary, Metalix, appears when help is needed]</p>
+            </div>
         </div>
     </div>
 
