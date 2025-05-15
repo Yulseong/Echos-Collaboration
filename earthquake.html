@@ -101,24 +101,33 @@
 
         /* 소제목 스타일 */
         h2 {
-            font-size: 20px; /* 기존 16px에서 2단계 크게 */
+            font-size: 20px;
             color: #aaff00;
             text-shadow: 0 0 10px #aaff00;
             margin-bottom: 8px;
         }
 
         h3 {
-            font-size: 18px; /* 기존 14px에서 2단계 크게 */
+            font-size: 18px;
             color: #3DE6FD;
             text-shadow: 0 0 8px #3DE6FD;
             margin: 10px 0;
         }
 
         p {
-            font-size: 16px; /* 기존 12px에서 2단계 크게 */
+            font-size: 16px;
             color: #ffffff;
             margin: 5px 0;
             line-height: 1.5;
+        }
+
+        a {
+            color: #aaff00;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #FFFF99;
         }
 
         /* 뒤로가기 버튼 스타일 */
@@ -154,13 +163,13 @@
                 margin: 8px 0;
             }
             h2 {
-                font-size: 18px; /* 기존 14px에서 2단계 크게 */
+                font-size: 18px;
             }
             h3 {
-                font-size: 16px; /* 기존 12px에서 2단계 크게 */
+                font-size: 16px;
             }
             p {
-                font-size: 14px; /* 기존 11px에서 2단계 크게 */
+                font-size: 14px;
             }
             .button {
                 font-size: 12px;
@@ -179,8 +188,26 @@
 
     <div class="textbox">
         <div class="buttons">
+            <a class="button" onclick="showContent('simulator')">시뮬레이터 링크</a>
             <a class="button" onclick="showContent('ooc')">OOC</a>
             <a class="button" onclick="showContent('npc')">NPC 소환코드</a>
+        </div>
+
+        <div id="simulator-content" class="content-box" style="display: none;">
+            <h2>시뮬레이터 링크</h2>
+            <div class="content-box">
+                <h3>케이브덕 (NPC 캐릭터 등장)</h3>
+                <p><b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">에코스 시뮬레이터</a><br>
+                <b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">Echos Simulator</a></p>
+            </div>
+            <div class="content-box">
+                <h3>로판 AI</h3>
+                <p><b>[율성]:</b> <a href="https://rofan.ai/character/a03315e2-27bd-4298-8c38-6459fc29a5bc" target="_blank">에코스 시뮬레이션</a></p>
+            </div>
+            <div class="content-box">
+                <h3>모치스</h3>
+                <p><b>[율성]:</b> <a href="https://www.mochis.ai/character/0ea3d802-f247-4e93-b656-9efae210e04f" target="_blank">에코스 시뮬레이션</a></p>
+            </div>
         </div>
 
         <div id="ooc-content" class="content-box" style="display: none;">
@@ -218,12 +245,13 @@
 
     <script>
         function showContent(section) {
+            document.getElementById('simulator-content').style.display = section === 'simulator' ? 'block' : 'none';
             document.getElementById('ooc-content').style.display = section === 'ooc' ? 'block' : 'none';
             document.getElementById('npc-content').style.display = section === 'npc' ? 'block' : 'none';
         }
 
-        // 기본적으로 OOC 콘텐츠 표시
-        showContent('ooc');
+        // 기본적으로 시뮬레이터 링크 콘텐츠 표시
+        showContent('simulator');
     </script>
 </body>
 </html>
