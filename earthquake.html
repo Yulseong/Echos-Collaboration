@@ -3,255 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>에코스(Echos) - 대지진</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>에코스(Echos) | GREAT EARTHQUAKE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 스타일 */
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #00ccff;
+            --accent-color: #aaff00;
+            --danger-color: #ff3e3e;
+            --bg-dark: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(0, 255, 204, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 50%, #1a1010 0%, #0a0a0c 100%);
+            color: #eee;
+            font-family: 'Noto Sans KR', sans-serif;
             min-height: 100vh;
-            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* 뒤로가기 버튼 */
+        .back-nav { position: fixed; top: 20px; left: 20px; z-index: 100; }
+        .back-button {
             font-family: 'Orbitron', sans-serif;
-            background-color: #111;
-            color: white;
-            padding: 10px;
-            overflow: auto;
+            font-size: 0.8rem;
+            color: var(--secondary-glow);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--secondary-glow);
+            background: rgba(0, 204, 255, 0.05);
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background: var(--secondary-glow);
+            color: #000;
+            box-shadow: 0 0 15px var(--secondary-glow);
         }
 
-        /* 메인 제목 스타일 */
+        /* 헤더 섹션 */
+        .header { text-align: center; margin-bottom: 40px; margin-top: 20px; }
         .main-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-            text-shadow: 
-                -2px -2px 0 #00ccff, 2px -2px 0 #00ccff, 
-                -2px 2px 0 #00ccff, 2px 2px 0 #00ccff;
-            margin-bottom: 20px;
-            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 62, 62, 0.5);
+        }
+        .sub-title {
+            color: var(--danger-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 5px;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
-        /* 텍스트 박스 스타일 */
-        .textbox {
-            position: relative;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            width: 90%;
-            max-width: 800px;
-            text-align: center;
-            border: 2px solid #00ff00;
-            background-color: #111;
-            overflow-y: auto;
-            max-height: 80vh;
-            word-wrap: break-word;
-            overflow-x: hidden;
-        }
-
-        /* 투명도 20% 오버레이 적용 */
-        .textbox::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            opacity: 0.8;
-            z-index: 1;
-        }
-
-        /* 콘텐츠 박스 스타일 */
-        .content-box {
-            border: 2px solid #00ccff;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            position: relative;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.6);
-            word-break: break-all;
-        }
-
-        /* 버튼 스타일 */
-        .buttons {
+        /* 메인 컨테이너 및 탭 메뉴 */
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        .tab-menu {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 30px;
         }
 
-        .button {
-            padding: 10px 20px;
-            background-color: #00ccff;
-            color: #111;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: #888;
+            padding: 12px 24px;
+            font-family: 'Orbitron', sans-serif;
             cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            border-radius: 4px;
         }
 
-        .button:hover {
-            background-color: #aaff00;
-            color: #111;
+        .tab-btn.active {
+            border-color: var(--primary-glow);
+            color: var(--primary-glow);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
         }
 
-        /* 소제목 스타일 */
-        h2 {
-            font-size: 20px;
-            color: #aaff00;
-            text-shadow: 0 0 10px #aaff00;
-            margin-bottom: 8px;
+        /* 콘텐츠 영역 */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
         }
 
         h3 {
-            font-size: 18px;
-            color: #3DE6FD;
-            text-shadow: 0 0 8px #3DE6FD;
-            margin: 10px 0;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--secondary-glow);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        p {
-            font-size: 16px;
-            color: #ffffff;
-            margin: 5px 0;
-            line-height: 1.5;
+        .platform-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--primary-glow);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
         }
 
-        a {
-            color: #aaff00;
-            text-decoration: underline;
+        .platform-box p { margin: 5px 0; font-size: 0.95rem; }
+        .platform-box a { color: var(--accent-color); text-decoration: none; font-weight: 500; }
+        .platform-box a:hover { text-decoration: underline; }
+
+        /* OOC & Code 스타일 */
+        .code-block {
+            background: #000;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #00ffaa;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+            position: relative;
         }
 
-        a:hover {
-            color: #FFFF99;
+        .code-label {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: #222;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            color: #888;
+            border-radius: 4px;
         }
 
-        /* 뒤로가기 버튼 스타일 */
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: #00ccff;
-            color: #111;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            z-index: 3;
+        .location-tag {
+            display: inline-block;
+            background: rgba(0, 204, 255, 0.1);
+            color: var(--secondary-glow);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 15px 0 10px 0;
         }
 
-        .back-button:hover {
-            background-color: #aaff00;
-            color: #111;
-        }
-
-        /* 모바일 반응형 조정 */
+        /* 반응형 */
         @media (max-width: 600px) {
-            .main-title {
-                font-size: 20px;
-            }
-            .textbox {
-                padding: 10px;
-                width: 95%;
-            }
-            .content-box {
-                padding: 8px;
-                margin: 8px 0;
-            }
-            h2 {
-                font-size: 18px;
-            }
-            h3 {
-                font-size: 16px;
-            }
-            p {
-                font-size: 14px;
-            }
-            .button {
-                font-size: 12px;
-                padding: 8px 15px;
-            }
-            .back-button {
-                font-size: 12px;
-                padding: 8px 15px;
-            }
+            .tab-menu { flex-direction: column; }
+            .main-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <a href="!DOCTYPE20.html" class="back-button">← 메인으로 돌아가기</a>
-    <h1 class="main-title">에코스(Echos) - 대지진</h1>
 
-    <div class="textbox">
-        <div class="buttons">
-            <a class="button" onclick="showContent('simulator')">시뮬레이터 링크</a>
-            <a class="button" onclick="showContent('ooc')">OOC</a>
-            <a class="button" onclick="showContent('npc')">NPC 소환코드</a>
+    <nav class="back-nav">
+        <a href="!DOCTYPE20.html" class="back-button">← BACK TO MAIN</a>
+    </nav>
+
+    <header class="header">
+        <h1 class="main-title">ECHOS : EVENTS</h1>
+        <div class="sub-title">GREAT EARTHQUAKE</div>
+    </header>
+
+    <div class="container">
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="openTab(event, 'simulator')">SIMULATOR</button>
+            <button class="tab-btn" onclick="openTab(event, 'ooc')">OOC COMMAND</button>
+            <button class="tab-btn" onclick="openTab(event, 'npc')">NPC SPAWN CODE</button>
         </div>
 
-        <div id="simulator-content" class="content-box" style="display: none;">
-            <h2>시뮬레이터 링크</h2>
-            <div class="content-box">
-                <h3>케이브덕 (NPC 캐릭터 등장)</h3>
-                <p><b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">에코스 시뮬레이터</a><br>
-                <b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">Echos Simulator</a></p>
-            </div>
-            <div class="content-box">
-                <h3>로판 AI</h3>
-                <p><b>[율성]:</b> <a href="https://rofan.ai/character/a03315e2-27bd-4298-8c38-6459fc29a5bc" target="_blank">에코스 시뮬레이션</a></p>
-            </div>
-            <div class="content-box">
-                <h3>모치스</h3>
-                <p><b>[율성]:</b> <a href="https://www.mochis.ai/character/0ea3d802-f247-4e93-b656-9efae210e04f" target="_blank">에코스 시뮬레이션</a></p>
-            </div>
-        </div>
-
-        <div id="ooc-content" class="content-box" style="display: none;">
-            <h2>OOC</h2>
-            <div class="content-box">
-                <h3>한글 버전</h3>
-                <p>[OOC: 잠시 RP 중단. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
-                <p>[OOC: 이전 RP와 이어서 자연스럽게 스토리 연결. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]</p>
-            </div>
-            <div class="content-box">
-                <h3>English Version</h3>
-                <p>[OOC: Pause RP for a moment. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
-                <p>[OOC: Continue the story naturally from the previous RP. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]</p>
+        <div id="simulator" class="content-section active">
+            <div class="info-card">
+                <div class="platform-box">
+                    <h3>CAVEDUCK (NPC 등장)</h3>
+                    <p><b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">에코스 시뮬레이터 (KR)</a></p>
+                    <p><b>[Yulseong]:</b> <a href="http://caveduck.io/character-info/a3013dad-090c-487b-8bf9-094f65e9546b?rc=E6ZntOeYem" target="_blank">Echos Simulator (EN)</a></p>
+                </div>
+                <div class="platform-box">
+                    <h3>ROFAN AI</h3>
+                    <p><b>[율성]:</b> <a href="https://rofan.ai/character/a03315e2-27bd-4298-8c38-6459fc29a5bc" target="_blank">에코스 시뮬레이션</a></p>
+                </div>
             </div>
         </div>
 
-        <div id="npc-content" class="content-box" style="display: none;">
-            <h2>NPC 소환코드</h2>
-            <div class="content-box">
-                <h3>한글 버전</h3>
-                <p>[# NPC 등장 조건.<br># NPC는 조건이 충족한 경우에만 등장한다.</p>
-                <p><지하 도시 에코스 상부 구역>에서만 등장<br>이클립스(Eclipse): 구조, 인명 구조, 에코스 구호 보호소 등장<br>새담(Saedam): 물, 식수, 물이나 식수를 찾는 행동을 할 때 등장<br>해성(Haeseong): 펜, 서류, 자신의 처지를 비관, 에코스 상부 구역에서 등장<br>알테아(Althea): 의료품, 병원, 치료가 필요한 상황에서 등장<br>로에(Roe): 레인저, 총, 에코스 입구, 지상에 나가야 하는 상황에서 등장<br>보라(Bora): 대피로, 학교, 선생님, 지식이 필요 할 때 등장</p>
-                <p><지하 도시 에코스 하부 구역>에서만 등장<br>새록(Saerok): 수리, 코그너스의 수리, 과학자, 연구소에서만 등장<br>노을(Noeul): 레지스탕스, 하부 구역, 조직, 가게 '로즈'에서 등장</p>
-                <p><지상>에서만 등장<br>스토커(Stalker): 돈, 부품, 잔해, 사냥, 경계, 지상의 숲 또는 황금 구역 등장<br>즈쿠모(Zukumo): 거미줄, 거미 고치, 비스트킨 영역에서 등장<br>무휘(Muhwi): 그림자, 밤, 어둠, 지상, 에코스 입구 주변, 밤에만 등장<br>유성(Yuseong): 약탈, 담배, 밤의 숲에서 약탈을 하기 위해 등장-유성 등장<br>칼립스(Calyx): 약초, 꽃, 폐허, 거래가 필요한 상황, 숲에서 등장<br>후연(Huyeon): 전기, 군사 시설, 군사 물품 발견 할때 등장<br>의현(Euihyun): 책, 유적, 마더 루트 마을에서 등장<br>나츄(Nachu): 열매, 과일, 과일 나무 앞에서 등장<br>실버(Male): 지도, 네이티스와 전투, 지상의 안내가 필요할 때 등장<br>검희(Geomhee): 경호, 용병, 메탈릭스, 도움이 필요 할 때 등장]</p>
+        <div id="ooc" class="content-section">
+            <div class="info-card">
+                <h3>KOREAN VERSION</h3>
+                <div class="code-block">
+                    <span class="code-label">Prompt A</span>
+                    [OOC: 잠시 RP 중단. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]
+                </div>
+                <div class="code-block">
+                    <span class="code-label">Prompt B (Connection)</span>
+                    [OOC: 이전 RP와 이어서 자연스럽게 스토리 연결. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]
+                </div>
+
+                <h3 style="margin-top:40px;">ENGLISH VERSION</h3>
+                <div class="code-block">
+                    <span class="code-label">Prompt A</span>
+                    [OOC: Pause RP for a moment. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]
+                </div>
+                <div class="code-block">
+                    <span class="code-label">Prompt B (Connection)</span>
+                    [OOC: Continue the story naturally from the previous RP. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]
+                </div>
             </div>
-            <div class="content-box">
-                <h3>English Version</h3>
-                <p>[# NPC Appearance Conditions.<br># NPCs will only appear when the conditions are met.</p>
-                <p><Underground City Echos Upper District> Only<br>Eclipse: Rescue, lifesaving, appears at Echos relief shelter<br>Saedam: Water, drinking water, appears when searching for water or food<br>Haeseong: Pen, documents, lamenting their situation, appears in Echos Upper District<br>Althea: Medical supplies, hospital, appears in situations requiring treatment<br>Roe: Ranger, gun, Echos entrance, appears in situations requiring surface travel<br>Bora: Evacuation route, school, teacher, appears when knowledge is needed</p>
-                <p><Underground City Echos Lower District> Only<br>Saerok: Repair, Cognus repair, scientist, appears only in the lab<br>Noeul: Resistance, Lower District, organization, appears at the shop 'Rose'</p>
-                <p><Surface> Only<br>Stalker: Money, parts, debris, hunting, vigilance, appears in surface forests or Golden Zones<br>Zukumo: Spider webs, spider cocoons, appears in Beastkin territory<br>Muhwi: Shadow, night, darkness, surface, around Echos entrance, appears only at night<br>Yuseong: Looting, cigarettes, appears in night forests for looting—Yuseong appears<br>Calyx: Herbs, flowers, ruins, appears in forests when trade is needed<br>Huyeon: Electricity, military facilities, appears when military items are discovered<br>Euihyun: Books, ruins, appears in Mother Root village<br>Nachu: Berries, fruits, appears in front of fruit trees<br>Silver (Male): Map, combat with Natis, appears when surface guidance is needed<br>Geomhee: Escort, mercenary, Metalix, appears when help is needed]</p>
+        </div>
+
+        <div id="npc" class="content-section">
+            <div class="info-card">
+                <h3>KOREAN / ENGLISH SPAWN CODE</h3>
+                
+                <div class="location-tag">UNDERGROUND : UPPER DISTRICT</div>
+                <div class="code-block">
+                    <b>이클립스(Eclipse):</b> 구조, 인명 구조, 에코스 구호 보호소 등장<br>
+                    <b>새담(Saedam):</b> 물, 식수, 물이나 식수를 찾는 행동을 할 때 등장<br>
+                    <b>해성(Haeseong):</b> 펜, 서류, 자신의 처지를 비관, 에코스 상부 구역 등장<br>
+                    <b>알테아(Althea):</b> 의료품, 병원, 치료가 필요한 상황에서 등장<br>
+                    <b>로에(Roe):</b> 레인저, 총, 에코스 입구, 지상 출입 상황 시 등장<br>
+                    <b>보라(Bora):</b> 대피로, 학교, 선생님, 지식이 필요할 때 등장
+                </div>
+
+                <div class="location-tag">UNDERGROUND : LOWER DISTRICT</div>
+                <div class="code-block">
+                    <b>새록(Saerok):</b> 수리, 코그너스의 수리, 과학자, 연구소 한정 등장<br>
+                    <b>노을(Noeul):</b> 레지스탕스, 하부 구역, 조직, 가게 '로즈' 등장
+                </div>
+
+                <div class="location-tag">SURFACE WORLD</div>
+                <div class="code-block">
+                    <b>스토커(Stalker):</b> 돈, 부품, 잔해, 사냥, 지상의 숲/황금 구역 등장<br>
+                    <b>즈쿠모(Zukumo):</b> 거미줄, 거미 고치, 비스트킨 영역 등장<br>
+                    <b>무휘(Muhwi):</b> 그림자, 어둠, 지상 에코스 입구 주변, 밤 한정 등장<br>
+                    <b>유성(Yuseong):</b> 약탈, 담배, 밤의 숲 약탈 시나리오 시 등장<br>
+                    <b>칼립스(Calyx):</b> 약초, 꽃, 폐허, 거래 상황, 숲에서 등장<br>
+                    <b>후연(Huyeon):</b> 전기, 군사 시설, 군사 물품 발견 시 등장<br>
+                    <b>의현(Euihyun):</b> 책, 유적, 마더 루트 마을에서 등장<br>
+                    <b>나츄(Nachu):</b> 열매, 과일, 과일 나무 앞 등장<br>
+                    <b>실버(Silver):</b> 지도, 네이티스 전투, 지상 안내 필요 시 등장<br>
+                    <b>검희(Geomhee):</b> 경호, 용병, 메탈릭스, 도움이 필요할 때 등장
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function showContent(section) {
-            document.getElementById('simulator-content').style.display = section === 'simulator' ? 'block' : 'none';
-            document.getElementById('ooc-content').style.display = section === 'ooc' ? 'block' : 'none';
-            document.getElementById('npc-content').style.display = section === 'npc' ? 'block' : 'none';
+        function openTab(evt, tabName) {
+            var i, content, tablinks;
+            content = document.getElementsByClassName("content-section");
+            for (i = 0; i < content.length; i++) {
+                content[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
-
-        // 기본적으로 시뮬레이터 링크 콘텐츠 표시
-        showContent('simulator');
     </script>
 </body>
 </html>
