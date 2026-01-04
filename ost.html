@@ -3,193 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>에코스(Echos) - OST</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>에코스(Echos) | Soundtrack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        /* 기본 스타일 */
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #00ccff;
+            --accent-color: #aaff00;
+            --warning-color: #ff3333;
+            --bg-dark: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0c 100%);
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #111;
-            color: white;
-            padding: 10px;
-            overflow: auto;
-        }
-
-        /* 메인 제목 스타일 */
-        .main-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-            text-shadow: 
-                -2px -2px 0 #00ccff, 2px -2px 0 #00ccff, 
-                -2px 2px 0 #00ccff, 2px 2px 0 #00ccff;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* 텍스트 박스 스타일 */
-        .textbox {
-            position: relative;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            width: 90%;
-            max-width: 800px;
-            text-align: center;
-            border: 2px solid #00ff00;
-            background-color: #111;
-            overflow-y: auto;
-            max-height: 80vh;
-            word-wrap: break-word;
+            padding: 40px 20px;
             overflow-x: hidden;
         }
 
-        /* 투명도 20% 오버레이 적용 */
-        .textbox::before {
+        /* 배경 애니메이션 (그리드 라인) */
+        body::before {
             content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            opacity: 0.8;
-            z-index: 1;
-        }
-
-        /* 콘텐츠 박스 스타일 */
-        .content-box {
-            border: 2px solid #00ccff;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            position: relative;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.6);
-            word-break: break-all;
-        }
-
-        /* 소제목 스타일 */
-        h2 {
-            font-size: 16px;
-            color: #aaff00;
-            text-shadow: 0 0 10px #aaff00;
-            margin-bottom: 8px;
-        }
-
-        /* 곡 제목 스타일 */
-        h3 {
-            font-size: 16px;
-            color: #3DE6FD;
-            text-shadow: 0 0 8px #3DE6FD;
-            margin: 10px 0;
-        }
-
-        /* 주의사항 스타일 */
-        h4 {
-            font-size: 12px;
-            color: #ff3333;
-            margin: 5px 0;
-            line-height: 1.5;
-        }
-
-        /* 유튜브 영상 스타일 */
-        .youtube-video {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 비율 유지 */
-        }
-
-        .youtube-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* 뒤로가기 버튼 스타일 */
-        .back-button {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: #00ccff;
-            color: #111;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 204, 0.02) 50%, transparent 52%);
+            background-size: 10px 10px;
+            z-index: -1;
+        }
+
+        /* 뒤로가기 버튼 */
+        .back-nav {
+            align-self: flex-start;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto 30px auto;
+        }
+
+        .back-button {
+            display: inline-block;
             text-decoration: none;
+            color: var(--secondary-glow);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 204, 255, 0.3);
             border-radius: 5px;
-            font-size: 14px;
-            z-index: 3;
+            transition: all 0.3s;
+            background: rgba(0, 204, 255, 0.05);
         }
 
         .back-button:hover {
-            background-color: #aaff00;
-            color: #111;
+            background: var(--secondary-glow);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--secondary-glow);
         }
 
-        /* 모바일 반응형 조정 */
-        @media (max-width: 600px) {
-            .main-title {
-                font-size: 20px;
-            }
-            .textbox {
-                padding: 10px;
-                width: 95%;
-            }
-            .content-box {
-                padding: 8px;
-                margin: 8px 0;
-            }
-            h2 {
-                font-size: 14px;
-            }
-            h3 {
-                font-size: 14px;
-            }
-            h4 {
-                font-size: 11px;
-            }
-            .back-button {
-                font-size: 12px;
-                padding: 8px 15px;
-            }
+        /* 헤더 섹션 */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff 30%, var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 204, 255, 0.4));
+            margin-bottom: 10px;
+        }
+
+        .sub-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            color: var(--primary-glow);
+            opacity: 0.8;
+        }
+
+        /* 콘텐츠 컨테이너 */
+        .archive-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* OST 카드 스타일 */
+        .ost-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .ost-card:hover {
+            border-color: var(--primary-glow);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
+        }
+
+        .track-info {
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-glow);
+            padding-left: 15px;
+        }
+
+        .track-index {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .track-title {
+            font-family: 'Orbitron', 'Noto Sans KR', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* 유튜브 영상 컨테이너 */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* 주의사항 스타일 */
+        .warning-box {
+            background: rgba(255, 51, 51, 0.1);
+            border: 1px dashed var(--warning-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .warning-text {
+            color: var(--warning-color);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* 글로우 포인트 */
+        .glow-point {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-glow);
+            animation: float 5s infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); opacity: 0.7; }
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; letter-spacing: 5px; }
+            .ost-card { padding: 20px; }
+            .track-title { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <a href="!DOCTYPE20.html" class="back-button">← 메인으로 돌아가기</a>
-    <h1 class="main-title">에코스(Echos) - OST</h1>
 
-    <div class="textbox">
-        <h2>에코스(Echos) - OST</h2>
-        <div class="content-box">
-            <h3>메인 OST(Main OST)</h3>
-            <div class="youtube-video">
+    <nav class="back-nav">
+        <a href="!DOCTYPE20.html" class="back-button">← BACK TO MAIN</a>
+    </nav>
+
+    <header class="header">
+        <h1 class="main-title">ECHOS OST</h1>
+        <p class="sub-title">SOUNDTRACK ARCHIVE</p>
+    </header>
+
+    <main class="archive-container">
+        
+        <section class="ost-card">
+            <div class="track-info">
+                <span class="track-index">FILE_00: MAIN</span>
+                <h2 class="track-title">메인 OST (Main OST)</h2>
+            </div>
+            <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/mtJfgjB95Uk" 
-                        title="YouTube video player" 
+                        title="Main OST" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-        </div>
-        <div class="content-box">
-            <h3>1. 아포칼립스(Apocalypse)</h3>
-            <div class="youtube-video">
+        </section>
+
+        <section class="ost-card">
+            <div class="track-info">
+                <span class="track-index">FILE_01: APOCALYPSE</span>
+                <h2 class="track-title">1. 아포칼립스 (Apocalypse)</h2>
+            </div>
+            <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/eo4rdPqd3Hk" 
-                        title="YouTube video player" 
+                        title="Apocalypse" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <h4>!!! 볼륨을 줄여주세요. 중간에 깨지는 부분이 있습니다. !!!</h4>
-            <h4>!!! Please turn down the volume. There's a section that breaks up or distorts in the middle. !!!</h4>
-        </div>
-    </div>
+            <div class="warning-box">
+                <p class="warning-text">
+                    ⚠️ !!! 볼륨을 줄여주세요. 중간에 깨지는 부분이 있습니다. !!!<br>
+                    ⚠️ !!! Please turn down the volume. There's a section that breaks up or distorts in the middle. !!!
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="glow-point" style="top: 15%; left: 10%;"></div>
+    <div class="glow-point" style="top: 60%; left: 85%;"></div>
+    <div class="glow-point" style="top: 85%; left: 20%;"></div>
+
 </body>
 </html>
