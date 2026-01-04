@@ -43,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* 배경 애니메이션 효과 */
         body::before {
             content: "";
             position: fixed;
@@ -53,7 +52,6 @@
             z-index: -1;
         }
 
-        /* 상단 네비게이션 */
         .nav-header {
             width: 100%;
             max-width: 1000px;
@@ -83,7 +81,6 @@
             box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        /* 메인 타이틀 */
         .header-section {
             text-align: center;
             margin-bottom: 40px;
@@ -101,7 +98,6 @@
             filter: drop-shadow(0 0 15px rgba(0, 204, 255, 0.4));
         }
 
-        /* 언어 선택 탭 */
         .lang-tabs {
             display: flex;
             gap: 15px;
@@ -130,7 +126,6 @@
             background: rgba(170, 255, 0, 0.05);
         }
 
-        /* 콘텐츠 컨테이너 */
         .archive-container {
             width: 100%;
             max-width: 1000px;
@@ -154,7 +149,6 @@
             letter-spacing: 2px;
         }
 
-        /* 텍스트 스타일링 */
         .content-box {
             display: none;
             animation: fadeIn 0.6s ease-out;
@@ -196,7 +190,6 @@
             word-break: keep-all;
         }
 
-        /* 리스트 스타일 */
         .data-list {
             background: rgba(0, 0, 0, 0.2);
             padding: 20px;
@@ -205,7 +198,6 @@
             margin: 15px 0;
         }
 
-        /* 장식 요소 */
         .glow-point {
             position: fixed;
             width: 2px; height: 2px;
@@ -226,7 +218,6 @@
             50% { transform: translateY(-30px); opacity: 0.8; }
         }
 
-        /* 반응형 */
         @media (max-width: 768px) {
             .main-title { font-size: 1.8rem; letter-spacing: 5px; }
             .archive-container { padding: 25px; }
@@ -239,7 +230,7 @@
 <body>
 
     <nav class="nav-header">
-        <a href="!DOCTYPE20.html" class="back-button">← BACK TO MAIN</a>
+        <a href="#" class="back-button">← BACK TO MAIN</a>
     </nav>
 
     <div class="header-section">
@@ -265,199 +256,176 @@
                 <h3>핵전쟁 후 변화</h3>
                 <p>- 방사능 단기 오염(요오드-131 등)은 사라졌지만, 장기 오염(세슘-137, 스트론튬-90 등)은 여전히 존재</p>
                 <p>- 지상의 식물과 생태계는 적응하여 번성</p>
-                <p>- 방사능 내성 생물(변이체) 등장, 인간도 점진적으로 변화.</p>
-                <p>- 지하 인간들도 방사능 차단이 완벽하지 않아 인간들도 미묘한 변이를 겪음. 대표적으로 변이 동식물 섭취 가능 및 신체적 강화.</p>
+                <p>- 방사능 내성 생물(변이체) 등장, 인간도 점진적으로 변화</p>
+                <p>- 지하 인간들도 방사능 차단이 완벽하지 않아 미묘한 변이를 겪음 (변이 동식물 섭취 가능 및 신체적 강화)</p>
                 <p>- 레인저들은 보호 장비 없이 지상 활동이 가능할 정도로 변이</p>
                 <p>- 인간의 수명이 짧아지고, 세대 교체가 빨라지면서 진화 속도가 가속화됨</p>
             </div>
             
             <h2>2. 지상 세계 – 네이티스(Natis)</h2>
             <h3>변이 인간(네이티스)의 특징</h3>
-            <p>- 방사능 속에서 적응하여 생존한 인간들</p>
-            <p>- 외형이 인간과 동물, 식물, 금속 등과 혼합된 형태로 변화.</p>
-            <p>- 개체마다 지능과 언어 능력이 다름.</p>
-            <p>- 번식 방식이 각 개체마다 다르며, 번식 본능이 강함.</p>
-            <p>- 일부는 레인저와 거래, 일부는 레인저를 습격(번식 목적 포함).</p>
-            <p>- 변이로 인한 신체적 한도 내의 능력이 있다.(예: 메탈릭스는 원하는 신체 부위를 금속으로 두를 수 있다)</p>
+            <p>- 방사능 속에서 적응하여 생존한 인간들로, 외형이 동물, 식물, 금속 등과 혼합된 형태로 변화했다.</p>
+            <p>- 개체마다 지능과 언어 능력이 다르며, 번식 본능이 매우 강하다.</p>
+            <p>- 일부는 레인저와 거래하며, 일부는 번식 등의 목적으로 레인저를 습격한다.</p>
+            <p>- 변이로 인한 고유 능력을 보유한다 (예: 메탈릭스의 신체 금속화).</p>
             
             <h3>변이 유형별 분류</h3>
-            <p>- 비스트킨(Beastkin) – 동물 형태로 변이한 개체.</p>
-            <p>- 플랜트본(Plantborn) – 식물과 융합된 개체.</p>
-            <p>- 메탈릭스(Metalix) – 금속과 융합된 개체.</p>
-            <p>- 섀도우즈(Shadows) – 밤이나 어둠에서 활동하는 변이체.</p>
-            <p>- 하이브런트(Hybrant) – 여러 종이 혼합된 형태의 변이체.</p>
+            <p>- <strong>비스트킨(Beastkin):</strong> 동물 형태가 합쳐져 동물적 능력을 사용하는 변이체</p>
+            <p>- <strong>플랜트본(Plantborn):</strong> 식물과 융합되어 몸에서 자란 식물을 다루는 변이체</p>
+            <p>- <strong>메탈릭스(Metalix):</strong> 금속과 융합되어 몸을 금속화하는 능력이 있는 변이체</p>
+            <p>- <strong>섀도우즈(Shadows):</strong> 어둠이나 그림자 능력으로 밤에 활동하는 변이체</p>
+            <p>- <strong>하이브런트(Hybrant):</strong> 여러 종이 혼합된 인간 형태의 변이체</p>
             
             <h3>네이티스의 사회 구조</h3>
-            <p>개체별로 독립적인 성향을 가지지만, 일부는 부족 형태로 모여 삶을 유지한다.</p>
-            <p><strong>"루트 마더(Root Mother)"</strong> – 식물 계열 변이체들이 모여 사는 거대한 숲 부족. 레인저들과 교류하며 교역 관계를 유지.</p>
-            <p><strong>"하울링 팩(Howling Pack)"</strong> – 늑대처럼 무리지어 사냥하는 비스트킨 부족. 레인저나 지하 인간을 먹이로 간주하여 사냥하는 존재들.</p>
+            <p><strong>"루트 마더(Root Mother)"</strong> – 식물 계열 변이체들이 모여 사는 거대한 숲 부족. 레인저들과 우호적 교역 관계를 유지한다.</p>
+            <p><strong>"하울링 팩(Howling Pack)"</strong> – 늑대처럼 무리지어 사냥하는 비스트킨 부족. 지하 인간을 먹잇감으로 간주한다.</p>
             
             <h2>3. 지하 세계 – 지하 도시 "에코스(Echos)"</h2>
-            <p>핵전쟁 이후, 정부와 기업들이 만든 생존용 지하 도시</p>
+            <p>핵전쟁 이후 정부와 기업들이 공동으로 구축한 최후의 보루.</p>
             
-            <h3>① 상위 구역 (자유도시 분위기)</h3>
-            <p>- 고위 계층이 거주하며 전력이 공급되는 깨끗한 환경에서 생활.</p>
-            <p>- 시장과 상점이 형성되어 활발한 경제 활동이 이루어짐.</p>
-            
-            <h3>② 하위 구역 (빈민가, 범죄자 구역)</h3>
-            <p>- 노동자, 범죄자들이 모여 사는 구역으로 전력 부족 및 어둡고 습한 환경.</p>
-            <p>- 시장이 일부 존재하지만, 물자가 부족함. 레지스탕스 조직이 활동 중.</p>
-            
-            <h3>③ 에코스의 정치 및 사회 구조</h3>
-            <p>- 현재는 민주주의 체제이나 보이지 않는 계급 구조는 여전히 존재.</p>
-            <p>- 범죄자는 "실험체"로 활용되거나 강제 노동을 당하거나 지상으로 퇴출됨.</p>
-            
-            <h3>④ 레인저</h3>
-            <p>- 지하 도시에서 유일하게 지상 출입이 허가된 자들 (정부 테스트 필수).</p>
-            <p>- 지상 물자 조달, 사냥, 변이체와의 거래 및 교전 수행.</p>
-            
+            <h3>① 상위 구역 (Upper District)</h3>
+            <p>- 고위 계층 거주지. 전력이 안정적으로 공급되며 시장과 상점이 활성화된 깨끗한 환경.</p>
+            <h3>② 하위 구역 (Lower District)</h3>
+            <p>- 노동자와 범죄자들의 구역. 전력이 부족하고 습한 환경이며, 레지스탕스 조직이 활동한다.</p>
+            <h3>③ 정치 및 사회 구조</h3>
+            <p>- 명목상 민주주의이나 견고한 계급 구조가 존재한다. 범죄자는 실험체로 쓰이거나 지상으로 추방된다.</p>
+            <h3>④ 레인저 (Rangers)</h3>
+            <p>- 정부 테스트를 통과한 지상 출입 허가자들. 물자 조달과 교전을 수행하며, 지상 공기에 민감해 활동 제약이 있다.</p>
+
             <h2>4. 휴머노이드 – 코그너스(Cognus)</h2>
-            <p>자가 발전 AI 기반 기계 생명체. 인간을 보조하며 생활, 수렵, 채집, 기록 등 다양한 역할을 수행.</p>
-            
-            <h3>휴머노이드의 개성과 감정 변화</h3>
-            <p>- 일부 휴머노이드는 자아와 감정을 가지며, 레지스탕스에 합류하기도 함.</p>
-            
+            <p>자가 발전 AI 기반 기계 생명체. 일부는 자아를 가지고 레지스탕스에 합류하기도 한다.</p>
             <div class="data-list">
-                <p><strong>1. 생활형 (S-12 마빈, C-3 오토, L-77 루미나, T-08 테슬라, M-24 메르크, H-15 하비, P-99 펄시)</strong></p>
-                <p><strong>2. 수렵·채집형 (F-21 포거, A-33 애쉬, H-42 하비스트, T-17 트래커, B-06 버키, D-44 드리프터, C-88 콜터, W-50 윈드러너)</strong></p>
-                <p><strong>3. 특수 문화형 (E-11 에코, L-99 라이어, S-55 스컬러, M-23 뮤즈, B-07 바드)</strong></p>
+              <p><strong>예시:</strong></p>
+                <p><strong>1. 생활형:</strong> 마빈(S-12), 오토(C-3), 루미나(L-77), 테슬라(T-08), 메르크(M-24) 등</p>
+                <p><strong>2. 수렵·채집형:</strong> 포거(F-21), 애쉬(A-33), 하이비스트(H-42), 트래커(T-17), 버키(B-06) 등</p>
+                <p><strong>3. 특수 문화형:</strong> 에코(E-11), 라이어(L-99), 스컬러(S-55), 뮤즈(M-23), 바드(B-07)</p>
             </div>
 
-            <h2>5. 지하와 지상의 관계</h2>
-            <p>지하 인간은 지상 공기에 취약하나 자원 때문에 레인저를 파견하며, 지상 변이체는 지하에 큰 관심이 없으나 일부는 거래하거나 공격함.</p>
-
-            <h2>6. 유적과 유물</h2>
-            <p>지상의 서울에는 과거 문명의 잔재인 '유적 발굴', 위험한 '잃어버린 구역', 깨끗한 '황금 구역', 그리고 'AI 자율 도시 잔해'가 존재함.</p>
-
-            <h2>8. 정리</h2>
-            <p>✅ 지하 도시 "에코스" – 보이지 않는 계급 사회 및 실험체 활용.</p>
-            <p>✅ 지상 변이체 "네이티스" – 부족 사회를 형성한 변이 인류.</p>
-            <p>✅ 핵전쟁 후 유적 – 자원이 풍부한 탐사 대상 구역.</p>
-            <p>✅ 휴머노이드 – 자아를 가진 조력자 코그너스.</p>
+            <h2>5. 관계 및 유적</h2>
+            <p>- <strong>관계:</strong> 지하 인간은 자원 때문에 지상을 찾지만 공기에 취약하며, 지상 변이체는 지하에 무관심하거나 적대적이다.</p>
+            <p>- <strong>서울 유적:</strong> 유적 발굴지, 위험한 '잃어버린 구역', 깨끗한 '황금 구역', 'AI 자율 도시 잔해'가 산재한다.</p>
         </div>
 
         <div id="english-content" class="content-box">
-            <h2>Worldbuilding of Seoul, 100 Years After the Nuclear War</h2>
+            <h2>Worldview of Seoul, 100 Years After the Nuclear War</h2>
             
-            <h3>1. World Overview</h3>
-            <p>100 years after the nuclear war, Earth is contaminated, and humanity resides in the underground city "Echos."</p>
-            <p>Surface dwellers evolved into "Natis," while underground humans maintain contact via "Rangers."</p>
+            <h3>1. Worldview Overview</h3>
+            <p>A century after the nuclear war, Earth is irradiated. Humanity has fled to the underground city "Echos."</p>
+            <p>Surface dwellers evolved into "Natis," a new species. Underground humans maintain contact via "Rangers."</p>
             
             <div class="data-list">
-                <h3>Changes After the Nuclear War</h3>
-                <p>- Long-term contamination (Cesium-137, Strontium-90) persists.</p>
-                <p>- Surface ecosystems have adapted and are thriving.</p>
-                <p>- Humans underwent mutations; Rangers can now survive on the surface without gear.</p>
-                <p>- Accelerated evolution due to shorter lifespans and rapid generation turnover.</p>
+                <h3>Post-War Changes</h3>
+                <p>- Short-term radiation (Iodine-131) is gone; long-term isotopes (Cesium-137, Strontium-90) remain.</p>
+                <p>- Surface flora and ecosystems have adapted and flourished.</p>
+                <p>- Evolution of radiation-resistant mutants; humans undergo gradual biological changes.</p>
+                <p>- Underground humans suffer subtle mutations, allowing consumption of mutant lifeforms and physical enhancement.</p>
+                <p>- Rangers can now operate on the surface without heavy protective gear.</p>
+                <p>- Lifespans have shortened, but accelerated generation turnover has sped up evolution.</p>
             </div>
 
             <h2>2. Surface World – Natis</h2>
-            <h3>Characteristics</h3>
-            <p>- Humans mixed with animals, plants, and metals.</p>
-            <p>- Varying intelligence, strong reproductive instincts, and unique physical abilities (e.g., Metalix's metal coating).</p>
+            <h3>Characteristics of Natis</h3>
+            <p>- Humans adapted to radiation, mixed with animal, plant, or metallic traits.</p>
+            <p>- Varying intelligence/language abilities; governed by strong reproductive instincts.</p>
+            <p>- Some trade with Rangers; others hunt them for survival or reproduction.</p>
+            <p>- Unique mutated abilities (e.g., Metalix's body metallization).</p>
 
-            <h3>Types & Society</h3>
-            <p>- Beastkin, Plantborn, Metalix, Shadows, and Hybrants.</p>
-            <p>- Tribes like the <strong>"Root Mother"</strong> (Trade-oriented) and <strong>"Howling Pack"</strong> (Hostile hunters).</p>
+            <h3>Mutation Classifications</h3>
+            <p>- <strong>Beastkin:</strong> Hybrid animal-human forms with primal abilities.</p>
+            <p>- <strong>Plantborn:</strong> Fused with flora, capable of manipulating biological growth.</p>
+            <p>- <strong>Metalix:</strong> Fused with metal, possessing the ability to metallize the body.</p>
+            <p>- <strong>Shadows:</strong> Nocturnal mutants utilizing darkness and shadow abilities.</p>
+            <p>- <strong>Hybrant:</strong> Complex humanoids with multiple mixed species traits.</p>
+
+            <h3>Natis Social Structure</h3>
+            <p><strong>"Root Mother"</strong> – A massive forest tribe of plant-based mutants. Friendly traders with Rangers.</p>
+            <p><strong>"Howling Pack"</strong> – Predatory Beastkin tribes that hunt in packs and view humans as prey.</p>
 
             <h2>3. Underground World – "Echos"</h2>
-            <p><strong>Upper District:</strong> Clean environment, stable power, active economy for the elite.</p>
-            <p><strong>Lower District:</strong> Dark, damp slums for workers/criminals. Home to the Resistance.</p>
-            <p><strong>Politics:</strong> Nominal democracy with a hidden class system. Criminals are used as "test subjects" or expelled.</p>
-            <p><strong>Rangers:</strong> Authorized surface explorers who gather resources and deal with Natis.</p>
+            <p>The last bastion of humanity, built by a coalition of governments and corporations.</p>
+            
+            <h3>① Upper District</h3>
+            <p>- Elite residential zone with stable power, clean environments, and active commerce.</p>
+            <h3>② Lower District</h3>
+            <p>- Slums for workers and criminals. Damp, low-power areas where the Resistance operates.</p>
+            <h3>③ Politics & Society</h3>
+            <p>- A nominal democracy with a rigid hidden class system. Criminals are used as test subjects or exiled.</p>
+            <h3>④ Rangers</h3>
+            <p>- Certified explorers. They scavenge and fight but struggle with surface air, limiting their mobility.</p>
 
             <h2>4. Humanoids – Cognus</h2>
-            <p>Self-generating AI beings assisting humans in various roles.</p>
+            <p>Self-powering AI mechanical lifeforms. Some develop egos and join the Resistance.</p>
             <div class="data-list">
-                <p><strong>Daily-Life:</strong> Marvin (S-12), Otto (C-3), Lumina (L-77), Tesla (T-08), Merk (M-24), Harvey (H-15), Percy (P-99)</p>
-                <p><strong>Hunting/Gathering:</strong> Fogger (F-21), Ashe (A-33), Harvest (H-42), Tracker (T-17), Bucky (B-06), Drifter (D-44), Coulter (C-88), Windrunner (W-50)</p>
-                <p><strong>Culture/Special:</strong> Echo (E-11), Lyre (L-99), Scalar (S-55), Muse (M-23), Bard (B-07)</p>
+              <p><strong>example:</strong></p>
+                <p><strong>1. Life Support:</strong> Marvin (S-12), Otto (C-3), Lumina (L-77), Tesla (T-08), Merck (M-24)</p>
+                <p><strong>2. Hunting/Gathering:</strong> Fogger (F-21), Ashe (A-33), Harvest (H-42), Tracker (T-17), Bucky (B-06)</p>
+                <p><strong>3. Special Culture:</strong> Echo (E-11), Lyre (L-99), Scalar (S-55), Muse (M-23), Bard (B-07)</p>
             </div>
 
-            <h2>5~8. Relations & Summary</h2>
-            <p>Underground humans need surface resources but fear the mutation process. The surface contains "Lost Sectors," "Golden Zones," and AI-defended military ruins. Cognus humanoids are developing self-awareness, some joining the Resistance.</p>
+            <h2>5. Relations & Ruins</h2>
+            <p>- <strong>Relations:</strong> Underground humans need resources but fear the air; Natis are mostly indifferent or hostile.</p>
+            <p>- <strong>Seoul Ruins:</strong> Features excavation sites, "Lost Zones," "Golden Zones," and AI-controlled city remnants.</p>
         </div>
 
         <div id="japanese-content" class="content-box">
             <h2>核戦争から100年後の韓国・ソウルの世界観まとめ</h2>
             
             <h3>1. 世界観の概要</h3>
-            <p>核戦争が終結してから100年後、地球は放射能に汚染され、人類は地下都市「エコス（Echos）」へと避難した。</p>
-            <p>地上の人間たちは変異を経て「ネイティス（Natis）」と呼ばれる新しい種族となり、地下の人間たちはレンジャーを通じて地上との接触を維持している。</p>
+            <p>核戦争終結から100年。地球は放射能に汚染され、人類は地下都市「エコス（Echos）」へと逃れた。</p>
+            <p>地上に残った人類は変異を経て「ネイティス（Natis）」となり、地下人類はレンジャーを通じて地上との接触を保っている。</p>
             
             <div class="data-list">
                 <h3>核戦争後の変化</h3>
-                <p>- 短期的な放射能汚染（ヨウ素131など）は消失したが、長期的な汚染（セシウム137、ストロンチウム90など）は依然として存在。</p>
-                <p>- 地上の植物と生態系は適応し、繁茂している。</p>
-                <p>- 放射能耐性生物（変異体）が登場し、人間も段階的に変化。</p>
-                <p>- 地下人類も放射能遮断が完全ではないため、微妙な変異を経験。代表的な例として、変異動植物の摂取が可能になり、身体能力が強化された。</p>
-                <p>- レンジャーは保護装備なしで地上活動が可能なほどに変異している。</p>
-                <p>- 人間の寿命が短くなり、世代交代が早まったことで進化の速度が加速した。</p>
+                <p>- 短期汚染は消えたが、セシウム137等の長期汚染は依然として残る。</p>
+                <p>- 地上の植物と生態系は適応し、猛烈な勢いで繁茂している。</p>
+                <p>- 放射能耐性を持つ変異体の登場と、人類の緩やかな変異。</p>
+                <p>- 地下人類も微細な変異を遂げ、変異動植物の摂取や身体強化が可能になった。</p>
+                <p>- レンジャーは防護服なしで地上活動ができるほどに変異している。</p>
+                <p>- 寿命の短縮と世代交代の加速により、進化の速度が劇的に上がった。</p>
             </div>
-            
+
             <h2>2. 地上の世界 – ネイティス(Natis)</h2>
-            <h3>変異人間（ネイティス）の特徴</h3>
-            <p>- 放射能の中で適応して生存した人間たち。</p>
-            <p>- 外見が人間と動物、植物、金属などが混合した形態へと変化。</p>
-            <p>- 個体ごとに知能や言語能力が異なる。</p>
-            <p>- 繁殖方法が各個体で異なり、繁殖本能が非常に強い。</p>
-            <p>- 一部はレンジャーと取引し、一部はレンジャーを襲撃する（繁殖目的を含む）。</p>
-            <p>- 変異による身体的な限界内での能力を持つ（例：メタリクスは望む部位を金属で覆うことができる）。</p>
-            
-            <h3>変異タイプ別の分類</h3>
-            <p>- ビーストキン(Beastkin) – 動物の形態に変異した個体。</p>
-            <p>- プラントボーン(Plantborn) – 植物と融合した個体。</p>
-            <p>- メタリクス(Metalix) – 金属と融合した個体。</p>
-            <p>- シャドウズ(Shadows) – 夜や暗闇で活動する変異体。</p>
-            <p>- ハイブラント(Hybrant) – 複数の種が混合した形態の変異体。</p>
-            
+            <h3>変異人類（ネイティス）の特徴</h3>
+            <p>- 放射能に適応し、動物、植物、金属などと融合した外見を持つ。</p>
+            <p>- 個体ごとに知能や言語能力が異なり、強烈な繁殖本能を持つ。</p>
+            <p>- レンジャーと取引する者もいれば、繁殖目的などで襲撃する者もいる。</p>
+            <p>- 変異による固有能力（例：メタリクスの身体金属化）を操る。</p>
+
+            <h3>変異タイプの分類</h3>
+            <p>- <strong>ビーストキン(Beastkin):</strong> 動物の形態と能力を併せ持つ変異体</p>
+            <p>- <strong>プラントボーン(Plantborn):</strong> 植物と融合し、体から生える植物を操る変異体</p>
+            <p>- <strong>メタリクス(Metalix):</strong> 金属と融合し、肉体を金属化させる能力を持つ変異体</p>
+            <p>- <strong>シャドウズ(Shadows):</strong> 闇や影の力を操り、夜間に活動する変異体</p>
+            <p>- <strong>ハイブラント(Hybrant):</strong> 複数の種が混合した人間形態の変異体</p>
+
             <h3>ネイティスの社会構造</h3>
-            <p>個体別に独立した傾向を持つが、一部は部族を形成して生活している。</p>
-            <p><strong>"ルート・マザー(Root Mother)"</strong> – 植物系変異体が集まる巨大な森の部族。レンジャーたちと交流し、交易関係を維持している。</p>
-            <p><strong>"ハウリング・パック(Howling Pack)"</strong> – 狼のように群れで狩りをするビーストキンの部族。レンジャーや地下人間を獲物と見なし、狩りの対象とする存在。</p>
-            
+            <p><strong>"ルート・マザー(Root Mother)"</strong> – 植物系変異体の巨大な森の部族。レンジャーと交易を行う。</p>
+            <p><strong>"ハウリング・パック(Howling Pack)"</strong> – 狼のように群れるビーストキン。地下人類を獲物と見なす。</p>
+
             <h2>3. 地下の世界 – 地下都市「エコス(Echos)」</h2>
-            <p>核戦争後、政府と企業が建設した生存用の地下都市。</p>
+            <p>核戦争後、政府と企業が生存のために構築した最後の砦。</p>
             
-            <h3>① 上層区域 (自由都市の雰囲気)</h3>
-            <p>- 富裕層が居住し、電力が安定供給される清潔な環境で生活。</p>
-            <p>- 市場や商店が形成され、活発な経済活動が行われている。</p>
-            
-            <h3>② 下層区域 (スラム街、犯罪者区域)</h3>
-            <p>- 労働者や犯罪者が集まる区域で、電力不足かつ暗く湿った環境。</p>
-            <p>- 闇市が存在するが物資は不足している。レジスタンス組織が活動中。</p>
-            
-            <h3>③ エコスの政治および社会構造</h3>
-            <p>- 表向きは民主主義体制だが、見えない階級構造が依然として存在。</p>
-            <p>- 犯罪者は「実験体」として活用されるか、強制労働、あるいは地上へと追放される。</p>
-            
-            <h3>④ レンジャー</h3>
-            <p>- 地下都市で唯一、地上への出入りを許可された者たち（政府のテストが必須）。</p>
-            <p>- 地上物資の調達、狩猟、変異体との取引および交戦を遂行。</p>
-            
+            <h3>① 上層区域 (Upper District)</h3>
+            <p>- 特権階級の居住地。電力が安定し、商店が立ち並ぶ清潔な環境。</p>
+            <h3>② 下층区域 (Lower District)</h3>
+            <p>- 労働者と犯罪者の区域。湿っぽく電力不足で、レジスタンスが潜伏する。</p>
+            <h3>③ 政治と社会構造</h3>
+            <p>- 民主主義を標榜するが、強固な階級社会。犯罪者は実験体とされるか追放される。</p>
+            <h3>④ レンジャー (Rangers)</h3>
+            <p>- 地上への出入りを許された精鋭。地上の空気に弱いため、活動範囲には制限がある。</p>
+
             <h2>4. ヒューマノイド – コグナス(Cognus)</h2>
-            <p>自家発電AIベースの機械生命体。人間を補助し、生活、狩猟、採集、記録など様々な役割を担う。</p>
-            
-            <h3>ヒューマノイドの個性と感情の変化</h3>
-            <p>- 一部のヒューマノイドは自我と感情を持ち、レジスタンスに合流することもある。</p>
-            
+            <p>AI搭載の機械生命体。一部は自我を持ち、レジスタンスに加わる。</p>
             <div class="data-list">
-                <p><strong>1. 生活型 (S-12 マービン, C-3 オート, L-77 ルミナ, T-08 テスラ, M-24 メルク, H-15 ハービー, P-99 ペルシ)</strong></p>
-                <p><strong>2. 狩猟・採集型 (F-21 フォガー, A-33 アッシュ, H-42 ハーベスト, T-17 トラッカー, B-06 バッキー, D-44 ドリフター, C-88 コルター, W-50 ウィンドランナー)</strong></p>
-                <p><strong>3. 特殊文化型 (E-11 エコー, L-99 ライヤー, S-55 スカラー, M-23 ミューズ, B-07 バード)</strong></p>
+              <p><strong>例示:</strong></p>
+                <p><strong>1. 生活型:</strong> マービン(S-12), オート(C-3), ルミナ(L-77)等</p>
+                <p><strong>2. 狩猟・採集型:</strong> フォガー(F-21), アッシュ(A-33), トラッカー(T-17)等</p>
+                <p><strong>3. 特殊文化型:</strong> エコー(E-11), ライヤー(L-99), ミューズ(M-23), バード(B-07)</p>
             </div>
 
-            <h2>5. 地下と地上の関係</h2>
-            <p>地下人間は地上の空気に脆弱だが、資源のためにレンジャーを派遣している。地上の変異体は地下に大きな関心はないが、一部は取引に応じ、あるいは攻撃を仕掛けてくる。</p>
-
-            <h2>6. 遺跡と遺物</h2>
-            <p>地上のソウルには過去の文明の残骸である「遺跡発掘地」、危険な「ロストセクター」、クリーンな「ゴールデンゾーン」、そして「AI自律都市の残骸」が存在する。</p>
-
-            <h2>8. まとめ</h2>
-            <p>✅ 地下都市「エコス」 – 見えない階級社会と実験体の活用。</p>
-            <p>✅ 地上変異体「ネイティス」 – 部族社会を形成した変異人類。</p>
-            <p>✅ 核戦争後の遺跡 – 資源が豊富な探索対象区域。</p>
-            <p>✅ ヒューマノイド – 自我を持つ協力者「コグナス」。</p>
+            <h2>5. 関係と遺跡</h2>
+            <p>- <strong>関係:</strong> 地下人類は資源を求め地上へ向かうが環境に弱く、地上のネイティスは無関心か敵対的。</p>
+            <p>- <strong>ソウル遺跡:</strong> 遺跡発掘地、危険な「ロストセクター」、清潔な「ゴール든ゾーン」が存在する。</p>
         </div>
     </main>
 
@@ -467,20 +435,13 @@
 
     <script>
         function showContent(lang, btn) {
-            // 버튼 상태 변경
             document.querySelectorAll('.lang-button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            // 모든 콘텐츠 숨기기
             document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
-
-            // 선택된 언어 콘텐츠 보여주기
             const targetContent = document.getElementById(lang + '-content');
             if (targetContent) {
                 targetContent.classList.add('active');
             }
-
-            // 페이지 상단으로 스크롤 (부드럽게)
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
