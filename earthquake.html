@@ -10,33 +10,51 @@
             --primary-glow: #00ffcc;
             --secondary-glow: #00ccff;
             --accent-color: #aaff00;
-            --danger-color: #ff3e3e;
+            --danger-glow: #ff3e3e;
             --bg-dark: #0a0a0c;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(0, 255, 204, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(0, 255, 204, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--bg-dark);
             background-image: radial-gradient(circle at 50% 50%, #1a1010 0%, #0a0a0c 100%);
             color: #eee;
             font-family: 'Noto Sans KR', sans-serif;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 40px 20px;
+            overflow-x: hidden;
         }
 
-        /* 뒤로가기 버튼 */
-        .back-nav { position: fixed; top: 20px; left: 20px; z-index: 100; }
+        /* 배경 그리드 애니메이션 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(255, 62, 62, 0.02) 50%, transparent 52%);
+            background-size: 15px 15px;
+            z-index: -1;
+        }
+
+        /* 네비게이션 */
+        .back-nav { width: 100%; max-width: 900px; margin-bottom: 30px; }
         .back-button {
+            display: inline-block;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
             color: var(--secondary-glow);
             text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--secondary-glow);
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 204, 255, 0.3);
             background: rgba(0, 204, 255, 0.05);
+            border-radius: 5px;
             transition: 0.3s;
+            letter-spacing: 2px;
         }
         .back-button:hover {
             background: var(--secondary-glow);
@@ -45,135 +63,162 @@
         }
 
         /* 헤더 섹션 */
-        .header { text-align: center; margin-bottom: 40px; margin-top: 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
         .main-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 900;
-            letter-spacing: 5px;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 62, 62, 0.5);
+            letter-spacing: 10px;
+            background: linear-gradient(to bottom, #fff 30%, var(--danger-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 62, 62, 0.4));
         }
         .sub-title {
-            color: var(--danger-color);
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 5px;
-            letter-spacing: 2px;
-            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 5px;
+            color: var(--danger-glow);
+            margin-top: 10px;
+            opacity: 0.8;
         }
 
-        /* 메인 컨테이너 및 탭 메뉴 */
-        .container { max-width: 900px; margin: 0 auto; }
-        
+        /* 탭 메뉴 */
+        .container { width: 100%; max-width: 900px; }
         .tab-menu {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
-
         .tab-btn {
-            background: transparent;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: #888;
-            padding: 12px 24px;
+            padding: 15px 30px;
             font-family: 'Orbitron', sans-serif;
-            cursor: pointer;
-            transition: 0.3s;
             font-size: 0.9rem;
-            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.4s;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
         }
-
+        .tab-btn:hover { border-color: var(--primary-glow); color: #fff; }
         .tab-btn.active {
             border-color: var(--primary-glow);
             color: var(--primary-glow);
             background: rgba(0, 255, 204, 0.1);
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
         }
 
         /* 콘텐츠 영역 */
         .content-section {
             display: none;
-            animation: fadeIn 0.5s ease-out;
+            animation: slideUp 0.5s ease-out;
         }
         .content-section.active { display: block; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .info-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
         }
 
         h3 {
             font-family: 'Orbitron', sans-serif;
             color: var(--secondary-glow);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .platform-box {
-            background: rgba(0, 0, 0, 0.3);
-            border-left: 3px solid var(--primary-glow);
-            padding: 15px;
+            font-size: 1.2rem;
             margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+            padding-bottom: 10px;
         }
 
-        .platform-box p { margin: 5px 0; font-size: 0.95rem; }
-        .platform-box a { color: var(--accent-color); text-decoration: none; font-weight: 500; }
-        .platform-box a:hover { text-decoration: underline; }
+        /* 시뮬레이터 박스 */
+        .platform-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--primary-glow);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 12px 12px 0;
+        }
+        .platform-box p { margin: 8px 0; font-size: 1rem; }
+        .platform-box a { color: var(--accent-color); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .platform-box a:hover { text-shadow: 0 0 10px var(--accent-color); }
 
-        /* OOC & Code 스타일 */
+        /* 코드 블록 */
         .code-block {
             background: #000;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 12px;
             font-family: 'Consolas', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.7;
             color: #00ffaa;
             border: 1px solid #222;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
+            box-shadow: inset 0 0 20px rgba(0, 255, 170, 0.05);
         }
-
         .code-label {
             position: absolute;
-            top: -10px;
-            right: 15px;
+            top: -12px;
+            right: 20px;
             background: #222;
-            padding: 2px 10px;
-            font-size: 0.7rem;
-            color: #888;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            color: var(--secondary-glow);
             border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
         }
 
+        /* NPC 태그 */
         .location-tag {
             display: inline-block;
-            background: rgba(0, 204, 255, 0.1);
-            color: var(--secondary-glow);
-            padding: 4px 12px;
+            font-family: 'Orbitron', sans-serif;
+            background: rgba(255, 62, 62, 0.1);
+            color: var(--danger-glow);
+            padding: 6px 15px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            margin: 15px 0 10px 0;
+            margin: 25px 0 15px 0;
+            border: 1px solid rgba(255, 62, 62, 0.2);
         }
 
-        /* 반응형 */
-        @media (max-width: 600px) {
-            .tab-menu { flex-direction: column; }
-            .main-title { font-size: 1.5rem; }
+        .npc-list b { color: var(--primary-glow); }
+
+        /* 글로우 포인트 */
+        .glow-point {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: var(--danger-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--danger-glow);
+            animation: float 6s infinite;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(-40px); opacity: 0.8; }
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; letter-spacing: 5px; }
+            .tab-btn { width: 100%; padding: 12px; }
+            .info-card { padding: 20px; }
         }
     </style>
 </head>
@@ -184,15 +229,15 @@
     </nav>
 
     <header class="header">
-        <h1 class="main-title">ECHOS : EVENTS</h1>
-        <div class="sub-title">GREAT EARTHQUAKE</div>
+        <h1 class="main-title">EVENT_CORE</h1>
+        <p class="sub-title">GREAT EARTHQUAKE : ARCHIVE</p>
     </header>
 
     <div class="container">
         <div class="tab-menu">
-            <button class="tab-btn active" onclick="openTab(event, 'simulator')">SIMULATOR</button>
-            <button class="tab-btn" onclick="openTab(event, 'ooc')">OOC COMMAND</button>
-            <button class="tab-btn" onclick="openTab(event, 'npc')">NPC SPAWN CODE</button>
+            <button class="tab-btn active" onclick="openTab(event, 'simulator')">01 SIMULATOR</button>
+            <button class="tab-btn" onclick="openTab(event, 'ooc')">02 OOC COMMAND</button>
+            <button class="tab-btn" onclick="openTab(event, 'npc')">03 NPC SPAWN</button>
         </div>
 
         <div id="simulator" class="content-section active">
@@ -211,23 +256,23 @@
 
         <div id="ooc" class="content-section">
             <div class="info-card">
-                <h3>KOREAN VERSION</h3>
+                <h3>KOREAN PROTOCOL</h3>
                 <div class="code-block">
-                    <span class="code-label">Prompt A</span>
+                    <span class="code-label">PROMPT_A</span>
                     [OOC: 잠시 RP 중단. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]
                 </div>
                 <div class="code-block">
-                    <span class="code-label">Prompt B (Connection)</span>
+                    <span class="code-label">PROMPT_B (CONN)</span>
                     [OOC: 이전 RP와 이어서 자연스럽게 스토리 연결. 어느 날 이 세계에 급작스러운 규모 9.0 이상의 대지진이 일어난다. 대지가 솟아오르고 지하 도시 일부가 무너지며 지상과 지하가 모두 위험에 처했다. 대지진 상황과 NPC의 행동을 자세하고 세밀하고 700단어 이상으로 서술하시오.]
                 </div>
 
-                <h3 style="margin-top:40px;">ENGLISH VERSION</h3>
+                <h3 style="margin-top:40px;">ENGLISH PROTOCOL</h3>
                 <div class="code-block">
-                    <span class="code-label">Prompt A</span>
+                    <span class="code-label">PROMPT_A</span>
                     [OOC: Pause RP for a moment. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]
                 </div>
                 <div class="code-block">
-                    <span class="code-label">Prompt B (Connection)</span>
+                    <span class="code-label">PROMPT_B (CONN)</span>
                     [OOC: Continue the story naturally from the previous RP. One day, a sudden earthquake of magnitude 9.0 or higher strikes this world. The ground surges upward, parts of the underground city collapse, and both the surface and the underground are thrown into danger. Describe the earthquake situation and the NPCs' actions in detail, meticulously, with a minimum of 700 words.]
                 </div>
             </div>
@@ -235,10 +280,10 @@
 
         <div id="npc" class="content-section">
             <div class="info-card">
-                <h3>KOREAN / ENGLISH SPAWN CODE</h3>
+                <h3>STATION_ID : KOR/ENG SPAWN DATA</h3>
                 
-                <div class="location-tag">UNDERGROUND : UPPER DISTRICT</div>
-                <div class="code-block">
+                <div class="location-tag">ZONE_01 : UNDERGROUND UPPER</div>
+                <div class="code-block npc-list">
                     <b>이클립스(Eclipse):</b> 구조, 인명 구조, 에코스 구호 보호소 등장<br>
                     <b>새담(Saedam):</b> 물, 식수, 물이나 식수를 찾는 행동을 할 때 등장<br>
                     <b>해성(Haeseong):</b> 펜, 서류, 자신의 처지를 비관, 에코스 상부 구역 등장<br>
@@ -247,14 +292,14 @@
                     <b>보라(Bora):</b> 대피로, 학교, 선생님, 지식이 필요할 때 등장
                 </div>
 
-                <div class="location-tag">UNDERGROUND : LOWER DISTRICT</div>
-                <div class="code-block">
+                <div class="location-tag">ZONE_02 : UNDERGROUND LOWER</div>
+                <div class="code-block npc-list">
                     <b>새록(Saerok):</b> 수리, 코그너스의 수리, 과학자, 연구소 한정 등장<br>
                     <b>노을(Noeul):</b> 레지스탕스, 하부 구역, 조직, 가게 '로즈' 등장
                 </div>
 
-                <div class="location-tag">SURFACE WORLD</div>
-                <div class="code-block">
+                <div class="location-tag">ZONE_03 : SURFACE WORLD</div>
+                <div class="code-block npc-list">
                     <b>스토커(Stalker):</b> 돈, 부품, 잔해, 사냥, 지상의 숲/황금 구역 등장<br>
                     <b>즈쿠모(Zukumo):</b> 거미줄, 거미 고치, 비스트킨 영역 등장<br>
                     <b>무휘(Muhwi):</b> 그림자, 어둠, 지상 에코스 입구 주변, 밤 한정 등장<br>
@@ -269,6 +314,10 @@
             </div>
         </div>
     </div>
+
+    <div class="glow-point" style="top: 25%; left: 10%;"></div>
+    <div class="glow-point" style="top: 75%; left: 90%;"></div>
+    <div class="glow-point" style="top: 45%; left: 80%;"></div>
 
     <script>
         function openTab(evt, tabName) {
